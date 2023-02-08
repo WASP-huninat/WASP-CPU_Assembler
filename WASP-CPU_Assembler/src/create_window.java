@@ -1,23 +1,21 @@
-
-
 import javax.swing.*;
+
+import wasp.action.listener.ExitButton;
+import wasp.action.listener.MenuItem;
+import wasp.component.listener.WindowResize;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.time.Duration;
 import java.time.Instant;
 
-public class create_window extends JFrame implements ActionListener {
+public class create_window extends JFrame{
 	
 	public static void main(String[] args) {
 		Instant start = Instant.now();
-		create_window win = new create_window();
+		create_window win = new create_window(500, 500);
 		win.setVisible(true);
 		Instant end = Instant.now();
 		System.out.println(Duration.between(start, end));
@@ -33,9 +31,9 @@ public class create_window extends JFrame implements ActionListener {
 	JMenuItem Gen_1;
 	JMenuItem Gen_2;
 	
-	public create_window() {
+	public create_window(int WindowWidth, int WindowHight) {
 		this.setTitle("Assembler");
-		this.setSize(500, 500);
+		this.setSize(WindowWidth, WindowHight);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,13 +46,14 @@ public class create_window extends JFrame implements ActionListener {
 		Gen_1 = user_interface_elements.create_MenuItem(chose_version, Gen_1, "Gen_1");
 		Gen_2 = user_interface_elements.create_MenuItem(chose_version, Gen_2, "Gen_2");
 		
-		new handler_MenuItem(Gen_1, Gen_2);
-		new handler_MenuItem(Gen_2, Gen_1);
+		new MenuItem(Gen_1, Gen_2, null, null, null, null);
+		new MenuItem(Gen_2, Gen_1, null, null, null, null);
 		
 		exit = new JButton("exit");
 		exit.setBackground(null);
 		exit.setBorderPainted(false);
-		exit.addActionListener(this);
+		
+		new ExitButton(exit);
 		
 		control = new JMenuBar();
 		control.add(chose_version);
@@ -66,21 +65,6 @@ public class create_window extends JFrame implements ActionListener {
 		Background.setBackground(Color.DARK_GRAY);
 		this.add(Background);
 		
-		
-
-		exit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		
-		this.addComponentListener(new ComponentAdapter() {
-		    public void componentResized(ComponentEvent e) {
-				int width = Background.getWidth();
-				exit.setLocation(width-56, 0);
-		    }
-		});
-	}
-	public void actionPerformed(ActionEvent e) {
+		new WindowResize(Background, exit);
 	}
 }
