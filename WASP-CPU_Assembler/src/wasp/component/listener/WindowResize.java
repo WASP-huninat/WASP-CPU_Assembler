@@ -16,6 +16,5 @@ public class WindowResize {
 				ThisButton.setLocation(width-56, 0);
 		    }
 		});
-		
 	}
 }

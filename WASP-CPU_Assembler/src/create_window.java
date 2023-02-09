@@ -35,25 +35,20 @@ public class create_window extends JFrame{
 		this.setTitle("Assembler");
 		this.setSize(WindowWidth, WindowHight);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		int window_width = this.getSize().width;
-        int window_height = this.getSize().height;
-        this .setLocation((dim.width-window_width)/2, (dim.height-window_height)/2);
+        this.setLocation((dim.width-WindowWidth)/2, (dim.height-WindowHight)/2);
 		
 		chose_version = new JMenu("chose generation");
 		
 		Gen_1 = user_interface_elements.create_MenuItem(chose_version, Gen_1, "Gen_1");
 		Gen_2 = user_interface_elements.create_MenuItem(chose_version, Gen_2, "Gen_2");
 		
-		new MenuItem(Gen_1, Gen_2, null, null, null, null);
-		new MenuItem(Gen_2, Gen_1, null, null, null, null);
+		new MenuItem(Gen_1, Color.LIGHT_GRAY, Gen_2, null, null, null, null);
+		new MenuItem(Gen_2, Color.LIGHT_GRAY, Gen_1, null, null, null, null);
 		
 		exit = new JButton("exit");
 		exit.setBackground(null);
 		exit.setBorderPainted(false);
-		
-		new ExitButton(exit);
 		
 		control = new JMenuBar();
 		control.add(chose_version);
@@ -66,5 +61,6 @@ public class create_window extends JFrame{
 		this.add(Background);
 		
 		new WindowResize(Background, exit);
+		new ExitButton(exit);
 	}
 }
