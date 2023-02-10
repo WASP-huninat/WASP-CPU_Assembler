@@ -1,18 +1,23 @@
-package wasp.action.listener;
+package wasp.listener;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JMenuItem;
 
 public class MenuItem{
-	public MenuItem(JMenuItem ThisButton, Color ColorAfterClicking, JMenuItem OtherButton1, JMenuItem OtherButton2, JMenuItem OtherButton3, JMenuItem OtherButton4, JMenuItem OtherButton5) {
+	public MenuItem(JMenuItem ThisButton, Color ColorAfterClicking, ArrayList<JMenuItem> JMenuItems) {
 		
 		ThisButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				for(int i = 0; i < JMenuItems.size();i++) {
+					JMenuItems.get(i).setBackground(null);
+				}
+				
 				ThisButton.setBackground(ColorAfterClicking);
-				OtherButton1.setBackground(null);
 			}
 		});
 	}

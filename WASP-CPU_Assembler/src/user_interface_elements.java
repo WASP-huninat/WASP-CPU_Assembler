@@ -1,7 +1,4 @@
-
-
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 
 public class user_interface_elements {
 

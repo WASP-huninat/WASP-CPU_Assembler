@@ -1,8 +1,7 @@
 import javax.swing.*;
 
-import wasp.action.listener.ExitButton;
-import wasp.action.listener.MenuItem;
-import wasp.component.listener.WindowResize;
+import wasp.listener.ExitButton;
+import wasp.listener.MenuItem;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,6 +10,9 @@ import java.awt.Toolkit;
 import java.time.Duration;
 import java.time.Instant;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+ 
 public class create_window extends JFrame{
 	
 	public static void main(String[] args) {
@@ -30,6 +32,11 @@ public class create_window extends JFrame{
 	JMenu chose_version;
 	JMenuItem Gen_1;
 	JMenuItem Gen_2;
+	JMenuItem Gen_10;
+	JMenuItem Gen_11;
+	JMenuItem Gen_12;
+	JMenuItem Gen_13;
+	JMenuItem Gen_14;
 	
 	public create_window(int WindowWidth, int WindowHight) {
 		this.setTitle("Assembler");
@@ -42,16 +49,30 @@ public class create_window extends JFrame{
 		
 		Gen_1 = user_interface_elements.create_MenuItem(chose_version, Gen_1, "Gen_1");
 		Gen_2 = user_interface_elements.create_MenuItem(chose_version, Gen_2, "Gen_2");
+		Gen_10 = user_interface_elements.create_MenuItem(chose_version, Gen_10, "Gen_10");
+		Gen_11 = user_interface_elements.create_MenuItem(chose_version, Gen_11, "Gen_11");
+		Gen_12 = user_interface_elements.create_MenuItem(chose_version, Gen_12, "Gen_12");
+		Gen_13 = user_interface_elements.create_MenuItem(chose_version, Gen_13, "Gen_13");
+		Gen_14 = user_interface_elements.create_MenuItem(chose_version, Gen_14, "Gen_14");
 		
-		new MenuItem(Gen_1, Color.LIGHT_GRAY, Gen_2, null, null, null, null);
-		new MenuItem(Gen_2, Color.LIGHT_GRAY, Gen_1, null, null, null, null);
+		ArrayList<JMenuItem> JMenuItems = new ArrayList<>(Arrays.asList(Gen_1, Gen_2, Gen_10, Gen_11, Gen_12, Gen_13, Gen_14));
+		
+		new MenuItem(Gen_1, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_2, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_10, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_11, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_12, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_13, Color.LIGHT_GRAY, JMenuItems);
+		new MenuItem(Gen_14, Color.LIGHT_GRAY, JMenuItems);
 		
 		exit = new JButton("exit");
 		exit.setBackground(null);
 		exit.setBorderPainted(false);
+
 		
 		control = new JMenuBar();
 		control.add(chose_version);
+		control.add(Box.createHorizontalGlue());
 		control.add(exit);
 		control.setBackground(Color.white);
 		this.add(control, BorderLayout.NORTH);
@@ -60,7 +81,6 @@ public class create_window extends JFrame{
 		Background.setBackground(Color.DARK_GRAY);
 		this.add(Background);
 		
-		new WindowResize(Background, exit);
 		new ExitButton(exit);
 	}
 }

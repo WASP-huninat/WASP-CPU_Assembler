@@ -1,4 +1,4 @@
-package wasp.action.listener;
+package wasp.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,5 +13,4 @@ public class ExitButton {
 			}
 		});
 	}
-
 }
