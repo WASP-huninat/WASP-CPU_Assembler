@@ -32,11 +32,6 @@ public class create_window extends JFrame{
 	JMenu chose_version;
 	JMenuItem Gen_1;
 	JMenuItem Gen_2;
-	JMenuItem Gen_10;
-	JMenuItem Gen_11;
-	JMenuItem Gen_12;
-	JMenuItem Gen_13;
-	JMenuItem Gen_14;
 	
 	public create_window(int WindowWidth, int WindowHight) {
 		this.setTitle("Assembler");
@@ -49,21 +44,11 @@ public class create_window extends JFrame{
 		
 		Gen_1 = user_interface_elements.create_MenuItem(chose_version, Gen_1, "Gen_1");
 		Gen_2 = user_interface_elements.create_MenuItem(chose_version, Gen_2, "Gen_2");
-		Gen_10 = user_interface_elements.create_MenuItem(chose_version, Gen_10, "Gen_10");
-		Gen_11 = user_interface_elements.create_MenuItem(chose_version, Gen_11, "Gen_11");
-		Gen_12 = user_interface_elements.create_MenuItem(chose_version, Gen_12, "Gen_12");
-		Gen_13 = user_interface_elements.create_MenuItem(chose_version, Gen_13, "Gen_13");
-		Gen_14 = user_interface_elements.create_MenuItem(chose_version, Gen_14, "Gen_14");
 		
-		ArrayList<JMenuItem> JMenuItems = new ArrayList<>(Arrays.asList(Gen_1, Gen_2, Gen_10, Gen_11, Gen_12, Gen_13, Gen_14));
+		ArrayList<JMenuItem> JMenuItems = new ArrayList<>(Arrays.asList(Gen_1, Gen_2));
 		
 		new MenuItem(Gen_1, Color.LIGHT_GRAY, JMenuItems);
 		new MenuItem(Gen_2, Color.LIGHT_GRAY, JMenuItems);
-		new MenuItem(Gen_10, Color.LIGHT_GRAY, JMenuItems);
-		new MenuItem(Gen_11, Color.LIGHT_GRAY, JMenuItems);
-		new MenuItem(Gen_12, Color.LIGHT_GRAY, JMenuItems);
-		new MenuItem(Gen_13, Color.LIGHT_GRAY, JMenuItems);
-		new MenuItem(Gen_14, Color.LIGHT_GRAY, JMenuItems);
 		
 		exit = new JButton("exit");
 		exit.setBackground(null);
