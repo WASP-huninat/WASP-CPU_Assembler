@@ -1,13 +1,14 @@
-package wasp.listener;
+package window.action;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
-public class ExitButton {
+public class ButtonPressed {
 	
-	public ExitButton(JButton exit) {
-		exit.addActionListener(new ActionListener() {
+	public ButtonPressed(JButton ButtonName) {
+		ButtonName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
