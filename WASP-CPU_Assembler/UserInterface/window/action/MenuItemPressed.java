@@ -7,16 +7,19 @@ import java.util.ArrayList;
 
 import javax.swing.JMenuItem;
 
+import wasp.assembly.SelectedAssembler;
+
 public class MenuItemPressed {
 	
-	public MenuItemPressed(JMenuItem ThisButton, Color ColorAfterClicking, ArrayList<JMenuItem> MenuItems) {
+	public MenuItemPressed(JMenuItem ButtonName, Color ColorAfterClicking, ArrayList<JMenuItem> MenuItems, int i, SelectedAssembler selectedAssembler) {
 		
-		ThisButton.addActionListener(new ActionListener() {
+		ButtonName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				for(int i = 0; i < MenuItems.size(); i++) {
 					MenuItems.get(i).setBackground(null);
 					}
-				ThisButton.setBackground(ColorAfterClicking);
+				ButtonName.setBackground(ColorAfterClicking);
+				selectedAssembler.setSelectedAssembler(i);
 			}
 		});
 	}

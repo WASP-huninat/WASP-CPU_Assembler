@@ -1,14 +1,8 @@
 package main;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
+import wasp.assembly.SelectedAssembler;
 import window.action.ButtonPressed;
 import window.action.MenuItemPressed;
 import window.building.UIElements;
@@ -16,7 +10,6 @@ import window.building.UIElements;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.time.Duration;
 import java.time.Instant;
@@ -34,16 +27,21 @@ public class WASP_CPU_Assembler extends JFrame {
 	}
 	
 	private static final long serialVersionUID = 1L;
-	JButton exit, test;
+	JButton exit, StartAssembly;
 	JMenu chose_version;
 	JMenuBar control;
 	JMenuItem gen_1, gen_2;
-	JPanel background, ControllPannel;
+	JPanel background, controllPannel;
 	JSplitPane split;
 	JTextArea textInput, textOutput;
 	
 	ArrayList<JMenuItem> MenuItems = new ArrayList<>();
 	ArrayList<JMenu> addMenusToMenuBar = new ArrayList<>();
+	ArrayList<Object> addToBackground = new ArrayList<>();
+	
+	int[] gridDimension = {1,3};
+	
+	SelectedAssembler selectedAssembler = new SelectedAssembler();
 	
 	public WASP_CPU_Assembler(int WindowWidth, int WindowHight) {
 		this.setTitle("Assembler");
@@ -62,31 +60,21 @@ public class WASP_CPU_Assembler extends JFrame {
 		control = UIElements.create_MenuBar(control, Color.WHITE, addMenusToMenuBar, exit);
 		this.add(control, BorderLayout.NORTH);
 		
-		ControllPannel = new JPanel();
+		textInput = UIElements.create_TextArea(textInput, true, true, addToBackground);
+		controllPannel = UIElements.create_PanelWithNoLayout(controllPannel, Color.DARK_GRAY,  this, addToBackground);
+		textOutput = UIElements.create_TextArea(textOutput, true, false, addToBackground);
 		
-		test = UIElements.create_Button(test, "test", Color.MAGENTA, false);
+		StartAssembly = UIElements.create_Button(StartAssembly, "StartAssembly", Color.MAGENTA, false);
 		
-		ControllPannel.add(test);
+		controllPannel.add(StartAssembly);
 		
-		textInput = UIElements.create_TextArea(textInput, true, true);
-		textOutput = UIElements.create_TextArea(textOutput, true, false);
-		
-//		String t =  textInput.getText();
-//		textOutput.setText(t);
-		
-		ControllPannel.setBackground(Color.DARK_GRAY);
-		
-		background = new JPanel();
-		background.setBackground(Color.magenta);
-		background.setLayout(new GridLayout(1, 3));
-		background.add(textInput);
-		background.add(ControllPannel);
-		background.add(textOutput);
-		this.add(background);
+		background = (JPanel) UIElements.create_GridLayoutPanel(background, gridDimension, addToBackground, this);
 		
 		new ButtonPressed(exit);
 		
-		new MenuItemPressed(gen_1, Color.LIGHT_GRAY, MenuItems);
-		new MenuItemPressed(gen_2, Color.LIGHT_GRAY, MenuItems);
+		new MenuItemPressed(gen_1, Color.LIGHT_GRAY, MenuItems, 1, selectedAssembler);
+		new MenuItemPressed(gen_2, Color.LIGHT_GRAY, MenuItems, 2, selectedAssembler);
+		
+		new ButtonPressed(StartAssembly, textInput, textOutput, selectedAssembler);
 	}
 }

@@ -1,9 +1,13 @@
 package window.building;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
+import main.WASP_CPU_Assembler;
 
 public class UIElements {
 	
@@ -46,12 +50,29 @@ public class UIElements {
 		return MenuName.add(MenuItemName);
 	}
 	
-	
-	
-	public static JTextArea create_TextArea(JTextArea TextAreaName, boolean LineWarp, boolean Eadibel) {
+	public static JTextArea create_TextArea(JTextArea TextAreaName, boolean LineWarp, boolean Eadibel, ArrayList<Object> addToBackground) {
 		TextAreaName = new JTextArea();
+		addToBackground.add(TextAreaName);
 		TextAreaName.setLineWrap(LineWarp);
 		TextAreaName.setEditable(Eadibel);
 		return TextAreaName;
+	}
+
+	public static JPanel create_GridLayoutPanel(JPanel PanelName, int[] gridDimention, ArrayList<Object> addToBackground, WASP_CPU_Assembler window) {
+		PanelName = new JPanel();
+		PanelName.setLayout(new GridLayout(gridDimention[0], gridDimention[1]));
+		for (int i = 0 ; i < addToBackground.size(); i++) {
+			PanelName.add((Component) addToBackground.get(i));
+		}
+		window.add(PanelName);
+		return PanelName;
+	}
+
+	public static JPanel create_PanelWithNoLayout(JPanel PanelName, Color BackgroundColor, WASP_CPU_Assembler window, ArrayList<Object> addToBackground) {
+		PanelName = new JPanel();
+		PanelName.setBackground(BackgroundColor);
+		addToBackground.add(PanelName);
+		window.add(PanelName);
+		return PanelName;
 	}
 }
