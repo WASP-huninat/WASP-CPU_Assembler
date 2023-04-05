@@ -63,6 +63,7 @@ public class WASP_CPU_Assembler extends JFrame {
 		textInput = UIElements.create_TextArea(textInput, true, true, addToBackground);
 		controllPannel = UIElements.create_PanelWithNoLayout(controllPannel, Color.DARK_GRAY,  this, addToBackground);
 		textOutput = UIElements.create_TextArea(textOutput, true, false, addToBackground);
+		textOutput.setTabSize(2);
 		
 		StartAssembly = UIElements.create_Button(StartAssembly, "StartAssembly", Color.MAGENTA, false);
 		

@@ -2,6 +2,7 @@ package window.building;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -52,9 +53,13 @@ public class UIElements {
 	
 	public static JTextArea create_TextArea(JTextArea TextAreaName, boolean LineWarp, boolean Eadibel, ArrayList<Object> addToBackground) {
 		TextAreaName = new JTextArea();
-		addToBackground.add(TextAreaName);
 		TextAreaName.setLineWrap(LineWarp);
 		TextAreaName.setEditable(Eadibel);
+		TextAreaName.setFont(new Font("", 0, 12));
+		JScrollPane ScrollPaneName = new JScrollPane(TextAreaName);
+		ScrollPaneName.setBorder(null);
+		ScrollPaneName.setBackground(null);
+		addToBackground.add(ScrollPaneName);
 		return TextAreaName;
 	}
 
