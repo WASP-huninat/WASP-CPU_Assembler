@@ -55,7 +55,7 @@ public class UIElements {
 		TextAreaName = new JTextArea();
 		TextAreaName.setLineWrap(LineWarp);
 		TextAreaName.setEditable(Eadibel);
-		TextAreaName.setFont(new Font("", 0, 12));
+		TextAreaName.setFont(new Font("", 0, 15));
 		JScrollPane ScrollPaneName = new JScrollPane(TextAreaName);
 		ScrollPaneName.setBorder(null);
 		ScrollPaneName.setBackground(null);
