@@ -6,7 +6,7 @@ import wasp.syntax.Gen1Syntax;
 import wasp.syntax.Gen2Syntax;
 
 public class Assembler {
-	private int z = 0;
+	private int z = 1;
 
 	public Assembler(JTextArea InTextAreaName, JTextArea OutTextAreaName, SelectedAssembler selectedAssembler) {
 		

@@ -25,7 +25,6 @@ public class Gen2Syntax {
 		if(OP.equals("LDY"))	return I = "0000 " + reg + " 0010 0010";
 		if(OP.equals("RDI"))	return I = reg + "  0010 0011";
 		if(OP.equals("WDO"))	return I = reg + "  0010 0100";
-		if(OP.equals("WAO"))	return I = reg + "  0010 0101";
 		if(OP.equals("GIO"))	return I = reg + "  0010 0110";
 	// ALU Operations
 		if(OP.equals("ADD"))	return I = "0001 " + reg + " 0100 0001";
@@ -43,6 +42,7 @@ public class Gen2Syntax {
 	// ROM (ICache Page swap)
 		if(OP.equals("CRA"))	return I = "0000 " + reg + " 1000 0001";
 		if(OP.equals("CRB"))	return I = "0000 " + reg + " 1000 0010";
+		if(OP.equals("WAO"))	return I = reg + " 1000 0011";
 
 		else OutTextAreaName.append("no matching instruction found");
 		return I;
