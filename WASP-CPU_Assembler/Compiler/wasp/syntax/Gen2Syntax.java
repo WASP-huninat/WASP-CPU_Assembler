@@ -24,7 +24,7 @@ public class Gen2Syntax {
 		if(OP.equals("LDX"))	return I = "0000 " + reg + " 0010 0001";
 		if(OP.equals("LDY"))	return I = "0000 " + reg + " 0010 0010";
 		if(OP.equals("RDI"))	return I = reg + "  0010 0011";
-		if(OP.equals("WDO"))	return I = reg + "  0010 0100";
+		if(OP.equals("WDO"))	return I = "0001" + reg + " 0010 0100";
 		if(OP.equals("GIO"))	return I = reg + "  0010 0110";
 	// ALU Operations
 		if(OP.equals("ADD"))	return I = "0001 " + reg + " 0100 0001";
