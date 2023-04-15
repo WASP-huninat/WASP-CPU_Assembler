@@ -42,7 +42,7 @@ public class Gen2Syntax {
 	// ROM (ICache Page swap)
 		if(OP.equals("CRA"))	return I = "0000 " + reg + " 1000 0001";
 		if(OP.equals("CRB"))	return I = "0000 " + reg + " 1000 0010";
-		if(OP.equals("WAO"))	return I = reg + " 1000 0011";
+		if(OP.equals("WAO"))	return I = reg + "  1000 0011";
 
 		else OutTextAreaName.append("no matching instruction found");
 		return I;
