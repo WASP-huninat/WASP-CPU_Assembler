@@ -23,15 +23,15 @@ public class Gen2Syntax {
 		if(OP.equals("WIA"))	return I = "0001 " + reg + " 0010 0000";
 		if(OP.equals("LDX"))	return I = "0000 " + reg + " 0010 0001";
 		if(OP.equals("LDY"))	return I = "0000 " + reg + " 0010 0010";
-		if(OP.equals("RDI"))	return I = reg + "  0010 0011";
-		if(OP.equals("WDO"))	return I = "0001" + reg + " 0010 0100";
+		if(OP.equals("RDI"))	return I = "0001 " + reg + "  0010 0011";
+		if(OP.equals("WDO"))	return I = "0000 " + reg + " 0010 0100";
 		if(OP.equals("GIO"))	return I = reg + "  0010 0110";
 	// ALU Operations
 		if(OP.equals("ADD"))	return I = "0001 " + reg + " 0100 0001";
 		if(OP.equals("SUB"))	return I = "0001 " + reg + " 0100 0010";
 		if(OP.equals("AND"))	return I = "0001 " + reg + " 0100 0011";
 		if(OP.equals("NAND"))	return I = "0001 " + reg + " 0100 0100";
-		if(OP.equals("OR"))	return I = "0001 " + reg + " 0100 0101";
+		if(OP.equals("OR"))		return I = "0001 " + reg + " 0100 0101";
 		if(OP.equals("NOR"))	return I = "0001 " + reg + " 0100 0110";
 		if(OP.equals("XOR"))	return I = "0001 " + reg + " 0100 0111";
 		if(OP.equals("XNOR"))	return I = "0001 " + reg + " 0100 1000";
