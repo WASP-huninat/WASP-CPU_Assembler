@@ -39,6 +39,7 @@ public class Gen2Syntax {
 		if(OP.equals("BLS"))	return I = "0001 " + reg + " 0100 1010";
 		if(OP.equals("LRS"))	return I = "0001 " + reg + " 0100 1011";
 		if(OP.equals("BRS"))	return I = "0001 " + reg + " 0100 1100";
+		if(OP.equals("NOS"))	return I = "0001 " + reg + " 0100 1101";
 	// ROM (ICache Page swap)
 		if(OP.equals("CRA"))	return I = "0000 " + reg + " 1000 0001";
 		if(OP.equals("CRB"))	return I = "0000 " + reg + " 1000 0010";
